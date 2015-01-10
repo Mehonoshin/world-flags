@@ -29,6 +29,8 @@
 .f32 .flag {
   width: 32px;
   height: 32px;
+  padding-left: 39px;
+  padding-top: 4px;
 }
 
 .f48 .flag {

@@ -17,6 +17,16 @@ module WorldFlags
 
 		attr_writer :flag_tag, :flag_list_tag, :flag_text
 
+    def country_by_code(code, locale)
+      mapping = JSON.parse(File.read('./config/countries.json'))
+      mapping[locale.to_s][code.to_s]
+    end
+
+    def countries_mapping(locale)
+      mapping = JSON.parse(File.read('./config/countries.json'))
+      mapping[locale.to_s].map { |k, v| [v, k] }
+    end
+
     def country_name_enabled?
     	WorldFlags::Util::Country.name_enabled?
     end
